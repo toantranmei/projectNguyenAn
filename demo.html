@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Example </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">  
+	<link rel="stylesheet" href="vendor/dialog/css/jquery-ui.css">	
+	 <link rel="stylesheet" href="vendor/dialog/css/fq-ui.extendeddialog.css">
+	  <script src="vendor/jquery-1.12.4.js"></script>
+	  <script src="vendor/dialog/js/jquery-ui.js"></script> 
+	  <script src="vendor/dialog/js/fq-ui.extendeddialog.js"></script> 
+ 			
+</head>
+<body >
+	 
+<button id="opener">open the dialog</button>
+<button id="opener1">open the dialog</button>
+<div id="dialog" title="Dialog Title">I'm a dialog</div>
+<div id="dialog1" title="Dialog Title1">I'm a dialog</div>
+ 
+<script>
+
+
+$( "#opener" ).click(function() {
+  $( "#dialog" ).extendeddialog(getOptions());
+});
+
+$( "#opener1" ).click(function() {
+  $( "#dialog1" ).extendeddialog(getOptions());
+});
+var getOptions = function () {
+            return {
+                minimizable: true,
+                maximizable: false,
+                minimizeIcon: 'ui-icon-minus',
+                restoreIcon: 'ui-icon-newwin',
+                minimizeText: 'minimize',
+                restoreText: 'restore',
+                minimizeLocation: 'left',
+                minimize: $.noop,
+                restore: $.noop,
+                width: 500,
+                resizeOnDlbclick: true          
+                
+            };
+        }
+
+</script>
+</body>
+</html>
