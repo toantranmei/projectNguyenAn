@@ -33,9 +33,12 @@
 }
 
 .chat-controls {
-    padding: 20px;
+    /*padding: 20px;*/
     padding-top: 0px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.chat-controls input[type="text"]{
+    font-size: 13px;
 }
 
 .chat-date-separator {
@@ -86,6 +89,7 @@
     color: #2A4E7F;
     margin-right: 20px;
     margin-left: 0px;
+    font-size: 13px;
 }
 
 .chat-message .chat-message-avatar {
@@ -118,6 +122,7 @@
     margin-left: 20px;
     border-radius: 20px;
     text-align: left;
+    font-size: 13px;
 }
 
 .chat-message {
@@ -251,3 +256,34 @@ body {
     color: #b0c4f3;
     display: block;
 } 
+
+
+/*set up moblie*/
+@media (max-width: 478px) {
+    .container{
+        padding: 0;
+
+    }
+    .box-chat ul.box-chat-tool li {
+        margin-right: 3px;
+    }
+    .box-chat ul.box-chat-tool li a{
+        font-size: 9px;
+    }
+    .box-chat ul.box-chat-tool li a i:before{
+        font-size: 10px;
+    }   
+    .search-input input{
+        font-size: 12px;
+        background: blue;
+    }
+    .box-chat .box-chat-content .box-chat-list .user-item .user-info .user-date{
+        font-size: 10px;
+    }
+    .box-chat .box-chat-content .box-chat-list .user-item .user-info .user-name{
+        font-size: 15px;
+    }
+    .last-message{
+        font-size: 13px;
+    }
+}
