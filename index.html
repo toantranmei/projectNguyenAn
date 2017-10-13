@@ -14,6 +14,7 @@
  	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
  	<style>
  		.vitri{ top: 10px; left: 10px; }
+ 		.an{ display: none; }
  	</style>
 </head>
 <body >
@@ -219,6 +220,7 @@
 	
 	<!-- thuc hien viet code javascript -->
 	<script>
+		count = 0;
 		var getOptions = function () {
             return {
                 minimizable: true,
@@ -238,183 +240,220 @@
             };
         }
 
+
         // set cac buoc cai dat
-        $(function(){
+    	$('.user-item').on('click', function() {
+    		//di chuyen vi trí của hộp thứ hai
+    			
+    			
+    			if( $(window).width() >768 && $(window).width() <=1024) {
+		        positionNgang = [50,100,150,200,250,300,350,400,450,500,550,600,650];
+		        positionDoc = [50,100,150,200,250,300,350,400];
 
-        	$('.user-item').on('click', function() {
-        		/* Act on the event */ 
-        		function randomPositon() {
-        			bodyWidth = document.body.clientWidth
-	  				bodyHeight = document.body.clientHeight;
-	        		//test position random thuat toan fix framework
+				ngang = document.body.clientWidth;
+				doc = document.body.clientHeight;
+
+	    		//test position random thuat toan fix framework
+				
+				viTriNgang = positionNgang[Math.floor((Math.random()*positionNgang.length))];
+				viTriDoc = positionDoc[Math.floor((Math.random()*positionDoc.length))];			
+					$('.ui-dialog.ui-corner-all.ui-widget.ui-widget-content').css({
+						left: viTriNgang,
+						top: viTriDoc
+					});
+			    } else if ( $(window).width() > 1024) {
+			        positionNgang = [50,100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000,1100];
+			        positionDoc = [50,100,150,200,250,300,350,400];
+
+					ngang = document.body.clientWidth;
+					doc = document.body.clientHeight;
+
+		    		//test position random thuat toan fix framework
 					
-					randPosX = Math.floor((Math.random()*bodyWidth));
-	  				randPosY = Math.floor((Math.random()*bodyHeight));  				
-	  				return $('.ui-dialog.ui-corner-all.ui-widget.ui-widget-content').css({
-	  					left: randPosX,
-	  					top: randPosY
-	  				});
-        		}
-        		randomPositon();
+					viTriNgang = positionNgang[Math.floor((Math.random()*positionNgang.length))];
+					viTriDoc = positionDoc[Math.floor((Math.random()*positionDoc.length))];			
+						$('.ui-dialog.ui-corner-all.ui-widget.ui-widget-content').css({
+							left: viTriNgang,
+							top: viTriDoc
+						});
+			    } else if( $(window).width() >480 && $(window).width() <=768) {
+			        positionNgang = [10,50,100,150,200,250];
+			        positionDoc = [10,50,100,150,200,250];
 
+					ngang = document.body.clientWidth;
+					doc = document.body.clientHeight;
 
-        		var ten = $(this).find('div.user-name').text();
-
-        		boxchat = '<div id="dialog" title="'+ten+'" class="box-chat-detail">';
-        		boxchat+= '<div class="chat-content-w">';
-        		boxchat+= '<div class="chat-message self">';
-        		boxchat+= '<div class="chat-message-content-w">';
-        		boxchat+= '<div class="chat-message-content">';
-        		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message-date">1:23pm</div>';
-        		boxchat+= '<div class="chat-message-avatar">';
-        		boxchat+= '<img src="images/avatar1.jpg" alt="">';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message">';
-        		boxchat+= '<div class="chat-message-content-w">';
-        		boxchat+= '<div class="chat-message-content">';
-        		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message-avatar">';
-        		boxchat+= '<img src="images/avatar2.jpg" alt="">';
-        		boxchat+= '<div class="chat-message-date">1:23pm</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message self">';
-        		boxchat+= '<div class="chat-message-content-w">';
-        		boxchat+= '<div class="chat-message-content">';
-        		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message-date">1:23pm</div>';
-        		boxchat+= '<div class="chat-message-avatar">';
-        		boxchat+= '<img src="images/avatar1.jpg" alt="">';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message">';
-        		boxchat+= '<div class="chat-message-content-w">';
-        		boxchat+= '<div class="chat-message-content">';
-        		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message-avatar">';
-        		boxchat+= '<img src="images/avatar2.jpg" alt="">';
-        		boxchat+= '<div class="chat-message-date">1:23pm</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message self">';
-        		boxchat+= '<div class="chat-message-content-w">';
-        		boxchat+= '<div class="chat-message-content">';
-        		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message-date">1:23pm</div>';
-        		boxchat+= '<div class="chat-message-avatar">';
-        		boxchat+= '<img src="images/avatar1.jpg" alt="">';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message">';
-        		boxchat+= '<div class="chat-message-content-w">';
-        		boxchat+= '<div class="chat-message-content">';
-        		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message-avatar">';
-        		boxchat+= '<img src="images/avatar2.jpg" alt="">';
-        		boxchat+= '<div class="chat-message-date">1:23pm</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-date-separator">';
-        		boxchat+= '<span>Yesterday</span>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message self">';
-        		boxchat+= '<div class="chat-message-content-w">';
-        		boxchat+= '<div class="chat-message-content">';
-        		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message-date">1:23pm</div>';
-        		boxchat+= '<div class="chat-message-avatar">';
-        		boxchat+= '<img src="images/avatar1.jpg" alt="">';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message">';
-        		boxchat+= '<div class="chat-message-content-w">';
-        		boxchat+= '<div class="chat-message-content">';
-        		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message-avatar">';
-        		boxchat+= '<img src="images/avatar2.jpg" alt="">';
-        		boxchat+= '<div class="chat-message-date">1:23pm</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message self">';
-        		boxchat+= '<div class="chat-message-content-w">';
-        		boxchat+= '<div class="chat-message-content">';
-        		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message-date">1:23pm</div>';
-        		boxchat+= '<div class="chat-message-avatar">';
-        		boxchat+= '<img src="images/avatar1.jpg" alt="">';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message">';
-        		boxchat+= '<div class="chat-message-content-w">';
-        		boxchat+= '<div class="chat-message-content">';
-        		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-message-avatar">';
-        		boxchat+= '<img src="images/avatar2.jpg" alt="">';
-        		boxchat+= '<div class="chat-message-date">1:23pm</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-controls">';
-        		boxchat+= '<div class="chat-input">';
-        		boxchat+= '<input placeholder="Type your message here..." type="text">';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="chat-input-extra">';
-        		boxchat+= '<div class="chat-extra-actions">';
-        		boxchat+= '<a href=""><i class="fa fa-paperclip"></i></a>';
-        		boxchat+= '<a href=""><i class="fa fa-picture-o"></i></a>';
-        		boxchat+= '<a href=""><i class="fa fa-phone"></i></a>';
-        		boxchat+= '</div>';
-        		boxchat+= '<div class="char-btn">';
-        		boxchat+= '<a href="" class="btn btn-send btn-primary">Gửi</a>';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		boxchat+= '</div>';
-        		$('.system').append(boxchat); 
-        		$( "#dialog" ).extendeddialog(getOptions());	
-        	
-
-
-
-
-
-        		// Code test day anh nhe
-        		// Giai thich: Khi append chung ta dang do du lieu vao html vi the neu viet ngoai function se khong lay class moi append ma phai viet vao trong ham thuc thi chua append()
-        		
-
-        		$('.btn-send').click(function(event) {
-					/* Act on the event */
-					alert("Test thoi nhe!")
-				});
-
-
-
-
-        	});
-        });
-		
+		    		//test position random thuat toan fix framework
+					
+					viTriNgang = positionNgang[Math.floor((Math.random()*positionNgang.length))];
+					viTriDoc = positionDoc[Math.floor((Math.random()*positionDoc.length))];			
+						$('.ui-dialog.ui-corner-all.ui-widget.ui-widget-content').css({
+							left: viTriNgang,
+							top: viTriDoc
+						});
+			    }
+	 			// ve html bang javascript
+	    		ten = $(this).find('div.user-name').text();
+	    		boxchat = '<div id="dialog" title="'+ten+'" class="box-chat-detail">';
+	    		boxchat+= '<div class="chat-content-w">';
+	    		boxchat+= '<div class="chat-message self">';
+	    		boxchat+= '<div class="chat-message-content-w">';
+	    		boxchat+= '<div class="chat-message-content">';
+	    		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message-date">1:23pm</div>';
+	    		boxchat+= '<div class="chat-message-avatar">';
+	    		boxchat+= '<img src="images/avatar1.jpg" alt="">';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message">';
+	    		boxchat+= '<div class="chat-message-content-w">';
+	    		boxchat+= '<div class="chat-message-content">';
+	    		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message-avatar">';
+	    		boxchat+= '<img src="images/avatar2.jpg" alt="">';
+	    		boxchat+= '<div class="chat-message-date">1:23pm</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message self">';
+	    		boxchat+= '<div class="chat-message-content-w">';
+	    		boxchat+= '<div class="chat-message-content">';
+	    		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message-date">1:23pm</div>';
+	    		boxchat+= '<div class="chat-message-avatar">';
+	    		boxchat+= '<img src="images/avatar1.jpg" alt="">';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message">';
+	    		boxchat+= '<div class="chat-message-content-w">';
+	    		boxchat+= '<div class="chat-message-content">';
+	    		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message-avatar">';
+	    		boxchat+= '<img src="images/avatar2.jpg" alt="">';
+	    		boxchat+= '<div class="chat-message-date">1:23pm</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message self">';
+	    		boxchat+= '<div class="chat-message-content-w">';
+	    		boxchat+= '<div class="chat-message-content">';
+	    		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message-date">1:23pm</div>';
+	    		boxchat+= '<div class="chat-message-avatar">';
+	    		boxchat+= '<img src="images/avatar1.jpg" alt="">';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message">';
+	    		boxchat+= '<div class="chat-message-content-w">';
+	    		boxchat+= '<div class="chat-message-content">';
+	    		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message-avatar">';
+	    		boxchat+= '<img src="images/avatar2.jpg" alt="">';
+	    		boxchat+= '<div class="chat-message-date">1:23pm</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-date-separator">';
+	    		boxchat+= '<span>Yesterday</span>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message self">';
+	    		boxchat+= '<div class="chat-message-content-w">';
+	    		boxchat+= '<div class="chat-message-content">';
+	    		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message-date">1:23pm</div>';
+	    		boxchat+= '<div class="chat-message-avatar">';
+	    		boxchat+= '<img src="images/avatar1.jpg" alt="">';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message">';
+	    		boxchat+= '<div class="chat-message-content-w">';
+	    		boxchat+= '<div class="chat-message-content">';
+	    		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message-avatar">';
+	    		boxchat+= '<img src="images/avatar2.jpg" alt="">';
+	    		boxchat+= '<div class="chat-message-date">1:23pm</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message self">';
+	    		boxchat+= '<div class="chat-message-content-w">';
+	    		boxchat+= '<div class="chat-message-content">';
+	    		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message-date">1:23pm</div>';
+	    		boxchat+= '<div class="chat-message-avatar">';
+	    		boxchat+= '<img src="images/avatar1.jpg" alt="">';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message">';
+	    		boxchat+= '<div class="chat-message-content-w">';
+	    		boxchat+= '<div class="chat-message-content">';
+	    		boxchat+= 'Slept train nearby a its is design size agreeable. And check cons, but countries the was to such any founding company';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-message-avatar">';
+	    		boxchat+= '<img src="images/avatar2.jpg" alt="">';
+	    		boxchat+= '<div class="chat-message-date">1:23pm</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-controls">';
+	    		boxchat+= '<div class="chat-input">';
+	    		boxchat+= '<input placeholder="Type your message here..." type="text">';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="chat-input-extra">';
+	    		boxchat+= '<div class="chat-extra-actions">';
+	    		boxchat+= '<a href=""><i class="fa fa-paperclip"></i></a>';
+	    		boxchat+= '<a href=""><i class="fa fa-picture-o"></i></a>';
+	    		boxchat+= '<a href=""><i class="fa fa-phone"></i></a>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '<div class="char-btn">';
+	    		boxchat+= '<a href="" class="btn btn-send btn-primary">Gửi</a>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		boxchat+= '</div>';
+	    		// giai ma va them vao html
+	    		$('.system').append(boxchat);
+	    		// append xong thi se mo hop thoai dialog 
+	    		$( "#dialog" ).extendeddialog(getOptions());
+	    		$(this).addClass('dis');
+	    			
+	    		$('.chat-controls').click(function() {
+	    			$(this).addClass('taking');
+	    			$(this).focusout(function(event) {
+	    				$(this).removeClass('taking');
+	    			});
+				 	$($('.taking').find(".btn-send")).click(function(event) {
+						var a = $(this).parents().prev().find("input");
+						gaitri = a.val();
+						alert(gaitri);
+						die();
+					});
+	    		});
+	    		
+	    	$('.dis').off();
+	    	$('.ui-icon-closethick').on('click', function(event) {
+    			event.preventDefault();
+    			$('.user-item.dis').removeClass('dis');
+    			$('.user-item').load(function() {
+    				/* Act on the event */
+    			});
+    		});
+    	});
 		
 	</script>
   
