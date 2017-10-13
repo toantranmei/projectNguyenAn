@@ -227,17 +227,17 @@
                 minimizeLocation: 'right',
                 minimize: $.noop,
                 restore: $.noop,
-                width: 'auto',
+                width: '300',
+                height: '400',
                 maxWidth: 500,
                 maxHeight: 500,
-                resizeOnDlbclick: true          
-                
+                resizeOnDlbclick: true
             };
         }
 
         // set cac buoc cai dat
         $(function(){
-        	$('.user-item').click(function(event) {
+        	$('.user-item').on('click', function() {
         		/* Act on the event */
         		var ten = $(this).find('div.user-name').text();
         		console.log(ten);
@@ -369,15 +369,30 @@
         		boxchat+= '<a href=""><i class="fa fa-phone"></i></a>';
         		boxchat+= '</div>';
         		boxchat+= '<div class="char-btn">';
-        		boxchat+= '<a href="" class="btn btn-primary">Gửi</a>';
+        		boxchat+= '<a href="" class="btn btn-send btn-primary">Gửi</a>';
         		boxchat+= '</div>';
         		boxchat+= '</div>';
         		boxchat+= '</div>';
         		boxchat+= '</div>';
         		$('.system').append(boxchat); 
         		$( "#dialog" ).extendeddialog(getOptions());	
+        	
+
+        		// Code test day anh nhe
+        		// Giai thich: Khi append chung ta dang do du lieu vao html vi the neu viet ngoai function se khong lay class moi append ma phai viet vao trong ham thuc thi chua append()
+        		
+        		$('.btn-send').click(function(event) {
+					/* Act on the event */
+					alert("Test thoi nhe!")
+				});
+
+
+
+
         	});
         });
+
+		
 	</script>
   
 </body>
