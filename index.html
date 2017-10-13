@@ -12,6 +12,9 @@
  	<link rel="stylesheet" href="css/style.css">
  	<link rel="stylesheet" type="text/css" href="vendor/fonts-icon/font/flaticon.css"> 
  	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+ 	<style>
+ 		.vitri{ top: 10px; left: 10px; }
+ 	</style>
 </head>
 <body >
 	<div class="main-content">
@@ -237,10 +240,25 @@
 
         // set cac buoc cai dat
         $(function(){
+
         	$('.user-item').on('click', function() {
-        		/* Act on the event */
+        		/* Act on the event */ 
+        		function randomPositon() {
+        			bodyWidth = document.body.clientWidth
+	  				bodyHeight = document.body.clientHeight;
+	        		//test position random thuat toan fix framework
+					
+					randPosX = Math.floor((Math.random()*bodyWidth));
+	  				randPosY = Math.floor((Math.random()*bodyHeight));  				
+	  				return $('.ui-dialog.ui-corner-all.ui-widget.ui-widget-content').css({
+	  					left: randPosX,
+	  					top: randPosY
+	  				});
+        		}
+        		randomPositon();
+
+
         		var ten = $(this).find('div.user-name').text();
-        		console.log(ten);
 
         		boxchat = '<div id="dialog" title="'+ten+'" class="box-chat-detail">';
         		boxchat+= '<div class="chat-content-w">';
@@ -378,9 +396,14 @@
         		$( "#dialog" ).extendeddialog(getOptions());	
         	
 
+
+
+
+
         		// Code test day anh nhe
         		// Giai thich: Khi append chung ta dang do du lieu vao html vi the neu viet ngoai function se khong lay class moi append ma phai viet vao trong ham thuc thi chua append()
         		
+
         		$('.btn-send').click(function(event) {
 					/* Act on the event */
 					alert("Test thoi nhe!")
@@ -391,7 +414,7 @@
 
         	});
         });
-
+		
 		
 	</script>
   
