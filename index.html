@@ -13,8 +13,7 @@
  	<link rel="stylesheet" type="text/css" href="vendor/fonts-icon/font/flaticon.css"> 
  	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
  	<style>
- 		.vitri{ top: 10px; left: 10px; }
- 		.an{ display: none; }
+ 		.dis{ pointer-events: none; }
  	</style>
 </head>
 <body >
@@ -133,7 +132,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!-- ================================================================
 						WARNING: SOURCE CODE OLD OF CUSTOMER (NOT EDIT)
 				================================================================ -->
@@ -235,66 +234,16 @@
                 width: '300',
                 height: '400',
                 maxWidth: 500,
-                maxHeight: 500,
-                resizeOnDlbclick: true
+                maxHeight: 500
             };
         }
 
 
         // set cac buoc cai dat
-    	$('.user-item').on('click', function() {
-    		//di chuyen vi trí của hộp thứ hai
-    			
-    			
-    			if( $(window).width() >768 && $(window).width() <=1024) {
-		        positionNgang = [50,100,150,200,250,300,350,400,450,500,550,600,650];
-		        positionDoc = [50,100,150,200,250,300,350,400];
-
-				ngang = document.body.clientWidth;
-				doc = document.body.clientHeight;
-
-	    		//test position random thuat toan fix framework
-				
-				viTriNgang = positionNgang[Math.floor((Math.random()*positionNgang.length))];
-				viTriDoc = positionDoc[Math.floor((Math.random()*positionDoc.length))];			
-					$('.ui-dialog.ui-corner-all.ui-widget.ui-widget-content').css({
-						left: viTriNgang,
-						top: viTriDoc
-					});
-			    } else if ( $(window).width() > 1024) {
-			        positionNgang = [50,100,150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950,1000,1100];
-			        positionDoc = [50,100,150,200,250,300,350,400];
-
-					ngang = document.body.clientWidth;
-					doc = document.body.clientHeight;
-
-		    		//test position random thuat toan fix framework
-					
-					viTriNgang = positionNgang[Math.floor((Math.random()*positionNgang.length))];
-					viTriDoc = positionDoc[Math.floor((Math.random()*positionDoc.length))];			
-						$('.ui-dialog.ui-corner-all.ui-widget.ui-widget-content').css({
-							left: viTriNgang,
-							top: viTriDoc
-						});
-			    } else if( $(window).width() >480 && $(window).width() <=768) {
-			        positionNgang = [10,50,100,150,200,250];
-			        positionDoc = [10,50,100,150,200,250];
-
-					ngang = document.body.clientWidth;
-					doc = document.body.clientHeight;
-
-		    		//test position random thuat toan fix framework
-					
-					viTriNgang = positionNgang[Math.floor((Math.random()*positionNgang.length))];
-					viTriDoc = positionDoc[Math.floor((Math.random()*positionDoc.length))];			
-						$('.ui-dialog.ui-corner-all.ui-widget.ui-widget-content').css({
-							left: viTriNgang,
-							top: viTriDoc
-						});
-			    }
-	 			// ve html bang javascript
+    	$('.user-item').on('click', function(e) {
+    			xoa = $(this);
 	    		ten = $(this).find('div.user-name').text();
-	    		boxchat = '<div id="dialog" title="'+ten+'" class="box-chat-detail">';
+	    		boxchat = '<div id="dialog" name="iduser" data="'+ten+'" title="'+ten+'" class="box-chat-detail">';
 	    		boxchat+= '<div class="chat-content-w">';
 	    		boxchat+= '<div class="chat-message self">';
 	    		boxchat+= '<div class="chat-message-content-w">';
@@ -421,39 +370,28 @@
 	    		boxchat+= '<a href=""><i class="fa fa-phone"></i></a>';
 	    		boxchat+= '</div>';
 	    		boxchat+= '<div class="char-btn">';
-	    		boxchat+= '<a href="" class="btn btn-send btn-primary">Gửi</a>';
+	    		boxchat+= '<a href="" type="submit" class="btn btn-send btn-primary">Gửi</a>';
 	    		boxchat+= '</div>';
 	    		boxchat+= '</div>';
 	    		boxchat+= '</div>';
 	    		boxchat+= '</div>';
-	    		// giai ma va them vao html
 	    		$('.system').append(boxchat);
-	    		// append xong thi se mo hop thoai dialog 
 	    		$( "#dialog" ).extendeddialog(getOptions());
-	    		$(this).addClass('dis');
-	    			
-	    		$('.chat-controls').click(function() {
-	    			$(this).addClass('taking');
-	    			$(this).focusout(function(event) {
-	    				$(this).removeClass('taking');
-	    			});
-				 	$($('.taking').find(".btn-send")).click(function(event) {
-						var a = $(this).parents().prev().find("input");
-						gaitri = a.val();
-						alert(gaitri);
-						die();
-					});
+	    		tennguoidung = '';
+	    		$('.btn-send').click(function() {
+	    			tennguoidung = $(this).parents().parents().parents().parents().prev('.ui-dialog-titlebar').find('.ui-dialog-title').text();
+	    			noidungtin = $(this).parents().parents().prev('.chat-input').find('input').val();
+	    			alert("Nguoi dung: " + tennguoidung + ". Noi dung: " + noidungtin);
+	    			die();
 	    		});
-	    		
-	    	$('.dis').off();
-	    	$('.ui-icon-closethick').on('click', function(event) {
-    			event.preventDefault();
-    			$('.user-item.dis').removeClass('dis');
-    			$('.user-item').load(function() {
-    				/* Act on the event */
-    			});
-    		});
+		    	xoa.addClass('dis');
+		    	$('.ui-icon.ui-icon-closethick').on('click', function(event) {
+		    		event.preventDefault();
+		    		$('.user-item').removeClass('dis');
+		    	});
+	    	
     	});
+
 		
 	</script>
   
